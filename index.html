@@ -1,78 +1,153 @@
-<main class="main-shell">
-  <aside class="sidebar">
-    <div class="sidebar-title">Browse categories</div>
-    <ul class="category-list" id="category-list">
-      <li class="category-item active" data-category="all">
-        <span class="icon">★</span>
-        <span>All products</span>
-      </li>
-      <li class="category-item" data-category="tech">
-        <span class="icon">💻</span>
-        <span>Tech & Gadgets</span>
-      </li>
-      <li class="category-item" data-category="fashion">
-        <span class="icon">👕</span>
-        <span>Fashion & Style</span>
-      </li>
-      <li class="category-item" data-category="home">
-        <span class="icon">🏠</span>
-        <span>Home & Living</span>
-      </li>
-      <li class="category-item" data-category="gaming">
-        <span class="icon">🎮</span>
-        <span>Gaming & Accessories</span>
-      </li>
-    </ul>
-    <p class="sidebar-note">
-      Curated pastel marketplace with a calm sea‑wave aesthetic. Add your own products and categories later.
-    </p>
-  </aside>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeaWave Market</title>
 
-  <section class="main-content">
-    <section class="hero">
-      <div class="hero-content">
-        <h1>SeaWave Market</h1>
-        <p>
-          A calm, premium marketplace experience with pastel sea‑wave tones and curated products across tech, fashion, and home.
-        </p>
-        <div class="hero-badges">
-          <span class="hero-badge">Soft pastel UI</span>
-          <span class="hero-badge">Responsive layout</span>
-          <span class="hero-badge">Cart & filters</span>
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">Sea<span>Wave</span>Market</div>
+
+    <nav class="nav">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="btn-primary" id="cart-toggle">
+        Cart (<span id="cart-count">0</span>)
+      </button>
+    </nav>
+
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <main class="main-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Browse categories</div>
+
+      <ul class="category-list" id="category-list">
+        <li class="category-item active" data-category="all">
+          <span class="icon">★</span>
+          <span>All products</span>
+        </li>
+        <li class="category-item" data-category="tech">
+          <span class="icon">💻</span>
+          <span>Tech & Gadgets</span>
+        </li>
+        <li class="category-item" data-category="fashion">
+          <span class="icon">👕</span>
+          <span>Fashion & Style</span>
+        </li>
+        <li class="category-item" data-category="home">
+          <span class="icon">🏠</span>
+          <span>Home & Living</span>
+        </li>
+        <li class="category-item" data-category="gaming">
+          <span class="icon">🎮</span>
+          <span>Gaming & Accessories</span>
+        </li>
+      </ul>
+
+      <p class="sidebar-note">
+        A calm pastel marketplace with curated categories and premium UI.
+      </p>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>SeaWave Market</h1>
+          <p>
+            A calm, premium marketplace experience with pastel sea‑wave tones and curated products across tech, fashion, and home.
+          </p>
+
+          <div class="hero-badges">
+            <span class="hero-badge">Soft pastel UI</span>
+            <span class="hero-badge">Responsive layout</span>
+            <span class="hero-badge">Cart & filters</span>
+          </div>
+
+          <button class="btn-primary" onclick="scrollToProducts()">Start browsing</button>
         </div>
-        <button class="btn-primary" onclick="scrollToProducts()">Start browsing</button>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="hero-card-title">Trending this week</div>
-          <div class="hero-card-grid">
-            <div class="hero-card-pill">Wireless audio</div>
-            <div class="hero-card-pill">Minimalist decor</div>
-            <div class="hero-card-pill">Everyday sneakers</div>
-            <div class="hero-card-pill">Desk essentials</div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-title">Trending this week</div>
+            <div class="hero-card-grid">
+              <div class="hero-card-pill">Wireless audio</div>
+              <div class="hero-card-pill">Minimalist decor</div>
+              <div class="hero-card-pill">Everyday sneakers</div>
+              <div class="hero-card-pill">Desk essentials</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="products" class="products-section">
-      <div class="toolbar">
-        <div class="toolbar-left">
-          <div class="toolbar-title">Featured products</div>
-          <div class="toolbar-sub">Search, filter, and sort your pastel marketplace.</div>
+      <!-- PRODUCTS -->
+      <section id="products" class="products-section">
+
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <div class="toolbar-title">Featured products</div>
+            <div class="toolbar-sub">Search, filter, and sort your pastel marketplace.</div>
+          </div>
+
+          <div class="toolbar-right">
+            <input type="text" id="search-input" placeholder="Search products..." />
+            <select id="sort-select">
+              <option value="default">Sort: Featured</option>
+              <option value="price-asc">Price: Low to high</option>
+              <option value="price-desc">Price: High to low</option>
+            </select>
+          </div>
         </div>
-        <div class="toolbar-right">
-          <input type="text" id="search-input" placeholder="Search products..." />
-          <select id="sort-select">
-            <option value="default">Sort: Featured</option>
-            <option value="price-asc">Price: Low to high</option>
-            <option value="price-desc">Price: High to low</option>
-          </select>
-        </div>
-      </div>
-      <div id="products-grid" class="products-grid">
-        <!-- Products injected by JS -->
-      </div>
+
+        <div id="products-grid" class="products-grid"></div>
+
+      </section>
+
     </section>
-  </section>
-</main>
+  </main>
+
+  <!-- CART DRAWER -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="icon-button" id="cart-close">✕</button>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="backdrop" class="backdrop"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © <span id="year"></span> SeaWave Market — All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
