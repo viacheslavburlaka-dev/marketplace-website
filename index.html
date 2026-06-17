@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueOrange Market</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Blue<span>Orange</span>Market</div>
+    <nav class="nav">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="btn-primary" id="cart-toggle">
+        Cart (<span id="cart-count">0</span>)
+      </button>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Your modern marketplace</h1>
+        <p>Discover curated products with a clean blue–orange–gray experience, on any device.</p>
+        <button class="btn-primary" onclick="scrollToProducts()">Shop now</button>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <h2>Trusted sellers</h2>
+          <p>Secure checkout, responsive design, and a delightful shopping flow.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="section-header">
+        <h2>Featured products</h2>
+        <div class="filters">
+          <input type="text" id="search-input" placeholder="Search products..." />
+          <select id="category-filter">
+            <option value="all">All categories</option>
+            <option value="tech">Tech</option>
+            <option value="home">Home</option>
+            <option value="fashion">Fashion</option>
+          </select>
+        </div>
+      </div>
+      <div id="products-grid" class="products-grid">
+        <!-- Products injected by JS -->
+      </div>
+    </section>
+
+    <section id="about" class="info-section">
+      <h2>About BlueOrange Market</h2>
+      <p>
+        BlueOrange Market is a demo marketplace template built with a modern blue, orange, and gray palette.
+        It’s fully responsive and ready to be deployed as a static site or extended with a backend.
+      </p>
+    </section>
+
+    <section id="contact" class="info-section">
+      <h2>Contact</h2>
+      <form class="contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input id="name" type="text" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input id="email" type="email" required />
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" required></textarea>
+        </div>
+        <button class="btn-primary" type="submit">Send</button>
+        <p id="contact-status" class="contact-status"></p>
+      </form>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h2>Your cart</h2>
+      <button class="icon-button" id="cart-close">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <button class="btn-primary" onclick="checkout()">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> BlueOrange Market. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
