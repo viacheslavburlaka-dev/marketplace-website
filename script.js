@@ -3,45 +3,66 @@ const products = [
     id: 1,
     title: "Wireless Noise-Canceling Headphones",
     category: "tech",
-    price: 129.99
+    price: 129.99,
+    image: ""
   },
   {
     id: 2,
     title: "Smart Home Speaker",
     category: "tech",
-    price: 89.0
+    price: 89.0,
+    image: ""
   },
   {
     id: 3,
     title: "Minimalist Desk Lamp",
     category: "home",
-    price: 39.5
+    price: 39.5,
+    image: ""
   },
   {
     id: 4,
     title: "Ergonomic Office Chair",
     category: "home",
-    price: 199.0
+    price: 199.0,
+    image: ""
   },
   {
     id: 5,
     title: "Classic Denim Jacket",
     category: "fashion",
-    price: 59.99
+    price: 59.99,
+    image: ""
   },
   {
     id: 6,
     title: "Everyday Sneakers",
     category: "fashion",
-    price: 74.99
+    price: 74.99,
+    image: ""
+  },
+  {
+    id: 7,
+    title: "RGB Gaming Mouse",
+    category: "gaming",
+    price: 49.99,
+    image: ""
+  },
+  {
+    id: 8,
+    title: "Mechanical Keyboard",
+    category: "gaming",
+    price: 99.99,
+    image: ""
   }
 ];
 
 let cart = [];
+let activeCategory = "all";
 
 const productsGrid = document.getElementById("products-grid");
 const searchInput = document.getElementById("search-input");
-const categoryFilter = document.getElementById("category-filter");
+const sortSelect = document.getElementById("sort-select");
 const cartCount = document.getElementById("cart-count");
 const cartDrawer = document.getElementById("cart-drawer");
 const cartItemsContainer = document.getElementById("cart-items");
@@ -52,32 +73,51 @@ const backdrop = document.getElementById("backdrop");
 const yearSpan = document.getElementById("year");
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.querySelector(".nav");
+const categoryList = document.getElementById("category-list");
 
-yearSpan.textContent = new Date().getFullYear();
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
 
-function renderProducts() {
+function getFilteredAndSortedProducts() {
   const searchTerm = searchInput.value.toLowerCase();
-  const category = categoryFilter.value;
+  const sortValue = sortSelect.value;
 
-  productsGrid.innerHTML = "";
-
-  const filtered = products.filter((p) => {
+  let filtered = products.filter((p) => {
     const matchesSearch = p.title.toLowerCase().includes(searchTerm);
-    const matchesCategory = category === "all" || p.category === category;
+    const matchesCategory =
+      activeCategory === "all" || p.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
 
-  if (filtered.length === 0) {
+  if (sortValue === "price-asc") {
+    filtered = filtered.slice().sort((a, b) => a.price - b.price);
+  } else if (sortValue === "price-desc") {
+    filtered = filtered.slice().sort((a, b) => b.price - a.price);
+  }
+
+  return filtered;
+}
+
+function renderProducts() {
+  const list = getFilteredAndSortedProducts();
+  productsGrid.innerHTML = "";
+
+  if (list.length === 0) {
     productsGrid.innerHTML = "<p>No products found.</p>";
     return;
   }
 
-  filtered.forEach((product) => {
+  list.forEach((product) => {
     const card = document.createElement("div");
     card.className = "product-card";
 
+    const imageContent = product.image
+      ? `<img src="${product.image}" alt="${product.title}" />`
+      : "Image placeholder";
+
     card.innerHTML = `
-      <div class="product-image">Image placeholder</div>
+      <div class="product-image">${imageContent}</div>
       <div class="product-title">${product.title}</div>
       <div class="product-category">${capitalize(product.category)}</div>
       <div class="product-bottom">
@@ -115,7 +155,11 @@ function removeFromCart(productId) {
 }
 
 function updateCartUI() {
-  cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  if (cartCount) {
+    cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  }
+
+  if (!cartItemsContainer || !cartTotal) return;
 
   cartItemsContainer.innerHTML = "";
   if (cart.length === 0) {
@@ -145,36 +189,52 @@ function updateCartUI() {
 }
 
 function openCart() {
+  if (!cartDrawer || !backdrop) return;
   cartDrawer.classList.add("open");
   backdrop.classList.add("visible");
 }
 
 function closeCart() {
+  if (!cartDrawer || !backdrop) return;
   cartDrawer.classList.remove("open");
   backdrop.classList.remove("visible");
 }
 
-cartToggle.addEventListener("click", openCart);
-cartClose.addEventListener("click", closeCart);
-backdrop.addEventListener("click", closeCart);
+if (cartToggle) cartToggle.addEventListener("click", openCart);
+if (cartClose) cartClose.addEventListener("click", closeCart);
+if (backdrop) backdrop.addEventListener("click", closeCart);
 
-searchInput.addEventListener("input", renderProducts);
-categoryFilter.addEventListener("change", renderProducts);
+if (searchInput) searchInput.addEventListener("input", renderProducts);
+if (sortSelect) sortSelect.addEventListener("change", renderProducts);
 
 function scrollToProducts() {
-  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+  const el = document.getElementById("products");
+  if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
-function handleContactSubmit(e) {
-  e.preventDefault();
-  const status = document.getElementById("contact-status");
-  status.textContent = "Thanks! This is a demo form—hook it to a backend to receive messages.";
-  e.target.reset();
+if (menuToggle && nav) {
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("open");
+  });
 }
 
-menuToggle.addEventListener("click", () => {
-  nav.classList.toggle("open");
-});
+if (categoryList) {
+  categoryList.addEventListener("click", (e) => {
+    const item = e.target.closest(".category-item");
+    if (!item) return;
+    const category = item.getAttribute("data-category");
+    if (!category) return;
+
+    activeCategory = category;
+
+    categoryList
+      .querySelectorAll(".category-item")
+      .forEach((el) => el.classList.remove("active"));
+    item.classList.add("active");
+
+    renderProducts();
+  });
+}
 
 renderProducts();
 updateCartUI();
