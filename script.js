@@ -1,59 +1,165 @@
+// MANY PRODUCTS, MULTI-CATEGORY, LIFESTYLE IMAGES (UNSPLASH)
+
 const products = [
   {
     id: 1,
     title: "Wireless Noise-Canceling Headphones",
     category: "tech",
     price: 129.99,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1518444028781-05f7c1e63f2f?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 2,
     title: "Smart Home Speaker",
     category: "tech",
     price: 89.0,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 3,
     title: "Minimalist Desk Lamp",
     category: "home",
     price: 39.5,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 4,
     title: "Ergonomic Office Chair",
-    category: "home",
+    category: "office",
     price: 199.0,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 5,
     title: "Classic Denim Jacket",
     category: "fashion",
     price: 59.99,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 6,
-    title: "Everyday Sneakers",
+    title: "Everyday White Sneakers",
     category: "fashion",
     price: 74.99,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 7,
     title: "RGB Gaming Mouse",
     category: "gaming",
     price: 49.99,
-    image: ""
+    image:
+      "https://images.unsplash.com/photo-1587202372775-98927f6a8caa?auto=format&fit=crop&w=800&q=80"
   },
   {
     id: 8,
-    title: "Mechanical Keyboard",
+    title: "Mechanical Gaming Keyboard",
     category: "gaming",
-    price: 99.99,
-    image: ""
+    price: 109.99,
+    image:
+      "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 9,
+    title: "Cozy Knit Throw Blanket",
+    category: "home",
+    price: 45.0,
+    image:
+      "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 10,
+    title: "Ceramic Coffee Mug Set",
+    category: "home",
+    price: 24.99,
+    image:
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 11,
+    title: "Standing Desk Converter",
+    category: "office",
+    price: 159.0,
+    image:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 12,
+    title: "Leather Work Backpack",
+    category: "lifestyle",
+    price: 129.0,
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 13,
+    title: "Wireless Charging Pad",
+    category: "tech",
+    price: 29.99,
+    image:
+      "https://images.unsplash.com/photo-1586816879360-004f5b0c51e3?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 14,
+    title: "4K Ultra HD Monitor",
+    category: "tech",
+    price: 349.99,
+    image:
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 15,
+    title: "Slim Fit Chinos",
+    category: "fashion",
+    price: 49.99,
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 16,
+    title: "Casual Hoodie",
+    category: "fashion",
+    price: 39.99,
+    image:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 17,
+    title: "Console Gaming Headset",
+    category: "gaming",
+    price: 79.99,
+    image:
+      "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 18,
+    title: "LED Strip Lights",
+    category: "gaming",
+    price: 19.99,
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 19,
+    title: "Indoor Plant Set",
+    category: "lifestyle",
+    price: 34.99,
+    image:
+      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 20,
+    title: "Scented Soy Candle",
+    category: "lifestyle",
+    price: 18.99,
+    image:
+      "https://images.unsplash.com/photo-1511910849309-0dffb8785146?auto=format&fit=crop&w=800&q=80"
   }
 ];
 
@@ -80,8 +186,8 @@ if (yearSpan) {
 }
 
 function getFilteredAndSortedProducts() {
-  const searchTerm = searchInput.value.toLowerCase();
-  const sortValue = sortSelect.value;
+  const searchTerm = (searchInput?.value || "").toLowerCase();
+  const sortValue = sortSelect?.value || "default";
 
   let filtered = products.filter((p) => {
     const matchesSearch = p.title.toLowerCase().includes(searchTerm);
@@ -114,7 +220,7 @@ function renderProducts() {
 
     const imageContent = product.image
       ? `<img src="${product.image}" alt="${product.title}" />`
-      : "Image placeholder";
+      : "Image";
 
     card.innerHTML = `
       <div class="product-image">${imageContent}</div>
@@ -143,6 +249,7 @@ function addToCart(productId) {
     existing.qty += 1;
   } else {
     const product = products.find((p) => p.id === productId);
+    if (!product) return;
     cart.push({ ...product, qty: 1 });
   }
   updateCartUI();
@@ -236,5 +343,6 @@ if (categoryList) {
   });
 }
 
+// INITIAL RENDER
 renderProducts();
 updateCartUI();

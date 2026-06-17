@@ -9,11 +9,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
-
   <!-- HEADER -->
   <header class="header">
     <div class="logo">Sea<span>Wave</span>Market</div>
@@ -32,7 +34,6 @@
 
   <!-- MAIN LAYOUT -->
   <main class="main-shell">
-
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="sidebar-title">Browse categories</div>
@@ -58,28 +59,35 @@
           <span class="icon">🎮</span>
           <span>Gaming & Accessories</span>
         </li>
+        <li class="category-item" data-category="office">
+          <span class="icon">🪑</span>
+          <span>Office & Work</span>
+        </li>
+        <li class="category-item" data-category="lifestyle">
+          <span class="icon">🌿</span>
+          <span>Lifestyle</span>
+        </li>
       </ul>
 
       <p class="sidebar-note">
-        A calm pastel marketplace with curated categories and premium UI.
+        Think of this like a calm Amazon: many categories, many products, but with a softer SeaWave look.
       </p>
     </aside>
 
     <!-- MAIN CONTENT -->
     <section class="main-content">
-
       <!-- HERO -->
       <section class="hero">
         <div class="hero-content">
           <h1>SeaWave Market</h1>
           <p>
-            A calm, premium marketplace experience with pastel sea‑wave tones and curated products across tech, fashion, and home.
+            A calm, professional marketplace where you can browse tech, fashion, home, gaming, and more—like Amazon, but with a softer pastel sea‑wave vibe.
           </p>
 
           <div class="hero-badges">
-            <span class="hero-badge">Soft pastel UI</span>
-            <span class="hero-badge">Responsive layout</span>
-            <span class="hero-badge">Cart & filters</span>
+            <span class="hero-badge">Multi‑category marketplace</span>
+            <span class="hero-badge">Lifestyle product photos</span>
+            <span class="hero-badge">Cart, search & sorting</span>
           </div>
 
           <button class="btn-primary" onclick="scrollToProducts()">Start browsing</button>
@@ -90,9 +98,9 @@
             <div class="hero-card-title">Trending this week</div>
             <div class="hero-card-grid">
               <div class="hero-card-pill">Wireless audio</div>
-              <div class="hero-card-pill">Minimalist decor</div>
+              <div class="hero-card-pill">Minimalist desks</div>
               <div class="hero-card-pill">Everyday sneakers</div>
-              <div class="hero-card-pill">Desk essentials</div>
+              <div class="hero-card-pill">Cozy home decor</div>
             </div>
           </div>
         </div>
@@ -100,11 +108,12 @@
 
       <!-- PRODUCTS -->
       <section id="products" class="products-section">
-
         <div class="toolbar">
           <div class="toolbar-left">
-            <div class="toolbar-title">Featured products</div>
-            <div class="toolbar-sub">Search, filter, and sort your pastel marketplace.</div>
+            <div class="toolbar-title">All products</div>
+            <div class="toolbar-sub">
+              Search, filter by category, and sort—just like a real marketplace.
+            </div>
           </div>
 
           <div class="toolbar-right">
@@ -118,9 +127,22 @@
         </div>
 
         <div id="products-grid" class="products-grid"></div>
-
       </section>
 
+      <!-- SIMPLE ABOUT / CONTACT PLACEHOLDERS -->
+      <section id="about" class="info-section">
+        <h2>About SeaWave Market</h2>
+        <p>
+          SeaWave Market is a demo multi‑category marketplace UI inspired by Amazon‑style layouts, but with a calmer pastel aesthetic.
+        </p>
+      </section>
+
+      <section id="contact" class="info-section">
+        <h2>Contact</h2>
+        <p>
+          This is a demo project. Replace this section with your real contact info, support links, or FAQ.
+        </p>
+      </section>
     </section>
   </main>
 
@@ -138,6 +160,9 @@
         <span>Total:</span>
         <span id="cart-total">$0.00</span>
       </div>
+      <button class="btn-primary cart-checkout-btn" disabled>
+        Checkout (demo)
+      </button>
     </div>
   </div>
 
@@ -145,7 +170,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    © <span id="year"></span> SeaWave Market — All rights reserved.
+    © <span id="year"></span> SeaWave Market — Demo multi‑category marketplace.
   </footer>
 
   <script src="script.js"></script>

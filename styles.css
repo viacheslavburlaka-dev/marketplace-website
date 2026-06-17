@@ -1,7 +1,7 @@
 :root {
   --sea-light: #a8e6df;
   --sea-mid: #7ad1c4;
-  --sea-dark: #4ba89c;
+  --sea-dark: #2f8f84;
 
   --sand: #f4ede2;
   --slate: #6e7a82;
@@ -23,7 +23,8 @@
 
 body {
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   background: radial-gradient(circle at top left, #a8e6df33, transparent 55%),
     radial-gradient(circle at bottom right, #f4ede233, transparent 55%),
     var(--white);
@@ -31,6 +32,7 @@ body {
 }
 
 /* HEADER */
+
 .header {
   position: sticky;
   top: 0;
@@ -39,7 +41,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 1.8rem;
-  background: rgba(248, 255, 253, 0.9);
+  background: rgba(248, 255, 253, 0.94);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(110, 122, 130, 0.15);
 }
@@ -99,8 +101,9 @@ body {
 }
 
 /* LAYOUT */
+
 .main-shell {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 1.5rem auto 3rem;
   padding: 0 1.5rem;
   display: grid;
@@ -109,12 +112,14 @@ body {
 }
 
 /* SIDEBAR */
+
 .sidebar {
-  background: rgba(244, 237, 226, 0.9);
+  background: rgba(244, 237, 226, 0.96);
   border-radius: var(--radius-lg);
   padding: 1.4rem 1.2rem;
   box-shadow: 0 12px 30px rgba(28, 42, 51, 0.08);
   border: 1px solid rgba(110, 122, 130, 0.18);
+  align-self: flex-start;
 }
 
 .sidebar-title {
@@ -165,6 +170,7 @@ body {
 }
 
 /* MAIN CONTENT */
+
 .main-content {
   display: flex;
   flex-direction: column;
@@ -172,6 +178,7 @@ body {
 }
 
 /* HERO */
+
 .hero {
   background: radial-gradient(circle at top left, #a8e6df, #f8fffd);
   border-radius: var(--radius-lg);
@@ -192,7 +199,7 @@ body {
 .hero-content p {
   margin: 0 0 1rem;
   color: var(--slate);
-  max-width: 460px;
+  max-width: 520px;
 }
 
 .hero-badges {
@@ -247,6 +254,7 @@ body {
 }
 
 /* TOOLBAR */
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -293,10 +301,11 @@ body {
 }
 
 /* PRODUCTS */
+
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.1rem;
 }
 
 .product-card {
@@ -318,7 +327,7 @@ body {
 .product-image {
   border-radius: 14px;
   background: linear-gradient(135deg, #a8e6df, #f4ede2);
-  height: 150px;
+  height: 160px;
   margin-bottom: 0.7rem;
   display: flex;
   align-items: center;
@@ -359,7 +368,26 @@ body {
   color: var(--sea-dark);
 }
 
+/* INFO SECTIONS */
+
+.info-section {
+  margin-top: 1.5rem;
+  background: rgba(248, 255, 253, 0.96);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(168, 230, 223, 0.7);
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.info-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  color: var(--navy);
+}
+
 /* CART */
+
 .cart-drawer {
   position: fixed;
   top: 0;
@@ -430,4 +458,95 @@ body {
   color: #f97373;
   font-size: 0.8rem;
   cursor: pointer;
+}
+
+.cart-footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  padding-top: 0.75rem;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.cart-checkout-btn {
+  width: 100%;
+}
+
+/* BACKDROP */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease-out;
+  z-index: 30;
+}
+
+.backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  color: var(--slate);
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .main-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    background: rgba(248, 255, 253, 0.98);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem 1.25rem 1rem;
+    gap: 0.75rem;
+    transform: translateX(100%);
+    transition: transform 0.2s ease-out;
+    min-width: 180px;
+    border-left: 1px solid rgba(110, 122, 130, 0.18);
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .toolbar-right {
+    width: 100%;
+  }
+
+  .toolbar select,
+  .toolbar input {
+    flex: 1;
+  }
 }
