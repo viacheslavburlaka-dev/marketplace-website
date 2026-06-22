@@ -70,7 +70,7 @@
       </ul>
 
       <p class="sidebar-note">
-        Think of this like a calm Amazon: many categories, many products, but with a softer SeaWave look.
+        Multi‑category marketplace with a calm SeaWave aesthetic. Add more products and categories as you grow.
       </p>
     </aside>
 
@@ -117,7 +117,10 @@
           </div>
 
           <div class="toolbar-right">
-            <input type="text" id="search-input" placeholder="Search products..." />
+            <div class="search-wrapper">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" placeholder="Search products..." />
+            </div>
             <select id="sort-select">
               <option value="default">Sort: Featured</option>
               <option value="price-asc">Price: Low to high</option>
@@ -170,7 +173,38 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    © <span id="year"></span> SeaWave Market — Demo multi‑category marketplace.
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo">Sea<span>Wave</span>Market</div>
+        <p class="footer-text">
+          A calm, multi‑category marketplace UI. Replace this with your real brand story later.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Marketplace</h4>
+        <a href="#products">All products</a>
+        <a href="#products">Tech & Gadgets</a>
+        <a href="#products">Home & Living</a>
+        <a href="#products">Fashion & Style</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <div class="footer-socials">
+          <span>🐦</span>
+          <span>📸</span>
+          <span>💼</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> SeaWave Market — Demo multi‑category marketplace.
+    </div>
   </footer>
 
   <script src="script.js"></script>
